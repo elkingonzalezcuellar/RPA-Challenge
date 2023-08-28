@@ -218,10 +218,8 @@ class NYTimesRobot:
             return ""
 
 
-@task
-def nytimes_automation():
-    nytimes_robot = NYTimesRobot()
-    nytimes_robot.main()
+    
 
 if __name__ == "__main__":
-    nytimes_automation()
+    nytimes_robot = NYTimesRobot()
+    nytimes_robot.main()

@@ -3,7 +3,7 @@
 
 tasks:
   Extract Data News:
-    shell: python -m robocorp.tasks run nytimes_robot.py
+    shell: python nytimes_robot.py
 
 devTasks: {}
 
