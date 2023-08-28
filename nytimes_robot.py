@@ -80,7 +80,7 @@ class NYTimesRobot:
         try:
             self.browser.wait_until_page_contains_element("css=[data-testid='search-input']", timeout=100)
         except Exception as e:
-            print("i cant found search phrase input")
+            print("i cant found search phrase input",e)
         try:
             self.browser.input_text("css=[data-testid='search-input']", search_phrase)
              
