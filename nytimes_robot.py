@@ -53,6 +53,8 @@ class NYTimesRobot:
         except Exception as e:
             print("Robocopr dont have  anybrowser")
         
+
+        print("Hello")
         """ try:
             self.handle_dialog_and_continue()
         except Exception as e:
@@ -60,10 +62,10 @@ class NYTimesRobot:
         # end try """
         
         
-        self.browser.maximize_browser_window()
+        """ self.browser.maximize_browser_window() """
 
 
-        self.browser.click_element("css=[data-testid='search-button']")
+        """ self.browser.click_element("css=[data-testid='search-button']")
 
         self.browser.input_text("css=[data-testid='search-input']", search_phrase)
         self.browser.press_keys("css=[data-testid='search-input']", "ENTER")
@@ -72,7 +74,7 @@ class NYTimesRobot:
         self.sort_by_newest()
         self.load_more_news()
         news_data = self.get_values()
-        self.store_in_excel(news_data, search_phrase, excel_folder,images_folder)
+        self.store_in_excel(news_data, search_phrase, excel_folder,images_folder) """
         
         self.browser.close_all_browsers()
     
