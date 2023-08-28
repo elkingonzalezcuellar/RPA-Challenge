@@ -13,7 +13,9 @@ import os
 import datetime
 import time
 from dateutil.relativedelta import relativedelta
-from RPA.Browser.Selenium import ExplicitWaiting, Find, FindMultiple
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 
 
@@ -70,10 +72,9 @@ class NYTimesRobot:
         # end try
 
         try:
-            ExplicitWaiting(self.browser).for_element_clickable(
-                Find(self.browser.driver, "css=[data-testid='search-button']"),
-                timeout=10,
-            ).click() 
+            wait = WebDriverWait(self.browser.driver, 10)
+            search_button = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "[data-testid='search-button']")))
+            search_button.click()
         except Exception as e:
             print("i cant click on search button")
         # end try
