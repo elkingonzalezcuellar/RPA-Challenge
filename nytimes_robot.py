@@ -1,6 +1,7 @@
 from RPA.Browser.Selenium import Selenium
 from RPA.Robocloud.Items import Items
 from RPA.Robocorp.WorkItems import WorkItems
+from robocorp.tasks import task
 from RPA.Excel.Files import Files
 from RPA.Tables import Tables
 from RPA.PDF import PDF
@@ -13,6 +14,8 @@ import datetime
 import time
 from dateutil.relativedelta import relativedelta
 
+
+@task
 class NYTimesRobot:
 
     def __init__(self):
