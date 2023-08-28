@@ -48,8 +48,18 @@ class NYTimesRobot:
        
         
 
-        self.browser.open_available_browser("http://www.nytimes.com/")
-        self.handle_dialog_and_continue()
+        try:
+            self.browser.open_available_browser("http://www.nytimes.com/")
+        except Exception as e:
+            print("Robocopr dont have  anybrowser")
+        
+        try:
+            self.handle_dialog_and_continue()
+        except Exception as e:
+            print("I can't run  dialog")
+        # end try
+        
+        
         self.browser.maximize_browser_window()
 
 
