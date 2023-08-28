@@ -53,11 +53,11 @@ class NYTimesRobot:
         except Exception as e:
             print("Robocopr dont have  anybrowser")
         
-        try:
+        """ try:
             self.handle_dialog_and_continue()
         except Exception as e:
             print("I can't run  dialog")
-        # end try
+        # end try """
         
         
         self.browser.maximize_browser_window()
