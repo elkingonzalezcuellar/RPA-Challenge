@@ -30,7 +30,7 @@ class NYTimesRobot:
             config = json.load(config_file)
             return config["search_phrase"], config["news_category"], config["num_months"]
         
-    @task
+    
     def main(self):
         search_phrase, news_category, num_months = self.read_config()
         current_date = datetime.datetime.now().strftime("%Y-%m-%d %H-%M-%S")
@@ -214,6 +214,10 @@ class NYTimesRobot:
             return ""
 
 
-if __name__ == "__main__":
+@task
+def nytimes_automation():
     nytimes_robot = NYTimesRobot()
     nytimes_robot.main()
+
+if __name__ == "__main__":
+    nytimes_automation()
