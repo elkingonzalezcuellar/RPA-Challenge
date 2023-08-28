@@ -72,12 +72,10 @@ class NYTimesRobot:
         # end try
 
         try:
-            wait = WebDriverWait(self.browser.driver, 10)
-            search_button = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "[data-testid='search-button']")))
-            search_button.click()
+            self.browser.wait_until_page_contains_element("css=[data-testid='search-button']", timeout=10)
+
         except Exception as e:
-            print("i cant click on search button")
-        # end try
+            print("Error while clicking search button:", e)
 
         try:
              
