@@ -34,11 +34,7 @@ class NYTimesRobot:
     
     def main(self):
 
-        self.browser.configure(
-            browser_engine="chromium",
-            screenshot="only-on-failure",
-            headless=True,
-        )
+        
       
         search_phrase, news_category, num_months = self.read_config()
         current_date = datetime.datetime.now().strftime("%Y-%m-%d %H-%M-%S")
