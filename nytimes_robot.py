@@ -13,6 +13,7 @@ import os
 import datetime
 import time
 from dateutil.relativedelta import relativedelta
+from RPA.Browser.Selenium import ExplicitWaiting, Find, FindMultiple
 
 
 
@@ -69,8 +70,10 @@ class NYTimesRobot:
         # end try
 
         try:
-            self.browser.click_element("css=[data-testid='search-button']")
-            # comment: 
+            ExplicitWaiting(self.browser).for_element_clickable(
+                Find(self.browser.driver, "css=[data-testid='search-button']"),
+                timeout=10,
+            ).click() 
         except Exception as e:
             print("i cant click on search button")
         # end try
