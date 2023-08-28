@@ -94,13 +94,43 @@ class NYTimesRobot:
         except Exception as e:
             print("i cant aply filters")
         # end try
-        self.select_date_range(num_months)
-        self.sort_by_newest()
-        self.load_more_news()
-        news_data = self.get_values()
-        self.store_in_excel(news_data, search_phrase, excel_folder,images_folder) 
-        
-        self.browser.close_all_browsers()
+        try:
+             
+            self.select_date_range(num_months)
+        except Exception as e:
+            print("i cant stablish date range")
+        # end try
+        try:
+            self.sort_by_newest()
+            # comment: 
+        except Exception as e:
+            print("i cant sort by newest")
+        # end try
+
+        try:
+            self.load_more_news()
+            # comment: 
+        except Exception as e:
+            print("i cant load all news")
+        # end try
+        try:
+            news_data = self.get_values()
+            # comme 
+        except Exception as e:
+            print("i cant get data values")
+        # end try
+        try:
+            self.store_in_excel(news_data, search_phrase, excel_folder,images_folder) 
+            # comment: 
+        except Exception as e:
+            print("i cant store date in excel")
+        # end try
+        try:
+            self.browser.close_all_browsers()
+            # comment: 
+        except Exception as e:
+            print("i cant close browsers")
+        # end try
     
     def handle_dialog_and_continue(self):
         try:
