@@ -55,26 +55,50 @@ class NYTimesRobot:
         
 
         print("Hello")
-        """ try:
+        try:
             self.handle_dialog_and_continue()
         except Exception as e:
             print("I can't run  dialog")
         # end try """
         
-        
-        """ self.browser.maximize_browser_window() """
+        try:
+            self.browser.maximize_browser_window()  
+            # comment: 
+        except Exception as e:
+            print("i cant maximize browser")
+        # end try
 
+        try:
+            self.browser.click_element("css=[data-testid='search-button']")
+            # comment: 
+        except Exception as e:
+            print("i cant click on search button")
+        # end try
 
-        """ self.browser.click_element("css=[data-testid='search-button']")
+        try:
+             
+            self.browser.input_text("css=[data-testid='search-input']", search_phrase)
+        except Exception as e:
+            print(" i cant search phrase")
+        # end try
 
-        self.browser.input_text("css=[data-testid='search-input']", search_phrase)
-        self.browser.press_keys("css=[data-testid='search-input']", "ENTER")
-        self.apply_filters(news_category)
+        try:
+            self.browser.press_keys("css=[data-testid='search-input']", "ENTER")
+            # comment: 
+        except Exception as e:
+            print("i cant enter search phrase")
+        # end try
+        try:
+            self.apply_filters(news_category)
+            # comment: 
+        except Exception as e:
+            print("i cant aply filters")
+        # end try
         self.select_date_range(num_months)
         self.sort_by_newest()
         self.load_more_news()
         news_data = self.get_values()
-        self.store_in_excel(news_data, search_phrase, excel_folder,images_folder) """
+        self.store_in_excel(news_data, search_phrase, excel_folder,images_folder) 
         
         self.browser.close_all_browsers()
     
