@@ -35,7 +35,7 @@ class NYTimesRobot:
         search_phrase, news_category, num_months = self.read_config()
         current_date = datetime.datetime.now().strftime("%Y-%m-%d %H-%M-%S")
         execution_folder_name = f"{current_date} - {search_phrase}"
-        execution_folder = os.path.join("results", execution_folder_name)
+        execution_folder = os.path.join("output", execution_folder_name)
         os.makedirs(execution_folder, exist_ok=True)
         images_folder = os.path.join(execution_folder, "images")
         os.makedirs(images_folder, exist_ok=True)
