@@ -78,7 +78,7 @@ class NYTimesRobot:
             print("Error while clicking search button:", e)
 
         try:
-            self.browser.wait_until_page_contains_element("css=[data-testid='search-input']", timeout=10)
+            self.browser.wait_until_page_contains_element("css=[data-testid='search-input']", timeout=20)
             self.browser.input_text("css=[data-testid='search-input']", search_phrase)
         except Exception as e:
             print("i cant search phrase")
