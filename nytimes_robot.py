@@ -15,7 +15,7 @@ import time
 from dateutil.relativedelta import relativedelta
 
 
-@task
+
 class NYTimesRobot:
 
     def __init__(self):
@@ -29,7 +29,8 @@ class NYTimesRobot:
         with open("config.json") as config_file:
             config = json.load(config_file)
             return config["search_phrase"], config["news_category"], config["num_months"]
-
+        
+    @task
     def main(self):
         search_phrase, news_category, num_months = self.read_config()
         current_date = datetime.datetime.now().strftime("%Y-%m-%d %H-%M-%S")
