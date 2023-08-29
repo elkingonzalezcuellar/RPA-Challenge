@@ -76,22 +76,25 @@ class NYTimesRobot:
 
         except Exception as e:
             print("Error while clicking search button:", e)
+        
+        try:
+            page_source = self.browser.get_source()
+            with open("page_source.html", "w", encoding="utf-8") as f:
+                f.write(page_source)
+        except Exception as e:
+            print("Failed to extract page source:", e)
+        
+        try:
+            self.browser.capture_page_screenshot("error_screenshot.png")
+        except Exception as e:
+            print("Failed to capture screenshot:", e)
 
         try:
             self.browser.wait_until_element_is_visible("css=[data-testid='search-input']")
 
         except Exception as e:
-            try:
-                self.browser.capture_page_screenshot("error_screenshot.png")
-            except Exception as e:
-                print("Failed to capture screenshot:", e)
-            try:
-                page_source = self.browser.get_page_source()
-                with open("page_source.html", "w", encoding="utf-8") as f:
-                    f.write(page_source)
-            except Exception as e:
-                print("Failed to extract page source:", e)
-            # end try
+            
+            
             print("i cant found search phrase input",e)
         try:
             self.browser.input_text("css=[data-testid='search-input']", search_phrase)
