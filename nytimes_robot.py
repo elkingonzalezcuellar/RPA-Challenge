@@ -77,6 +77,11 @@ class NYTimesRobot:
         # end try
         try:
             self.browser.execute_javascript("document.querySelector('[data-testid=\"nav-button\"]').click();")
+            page_source = self.browser.get_source()
+            
+            with open("output/page_source2.html", "w", encoding="utf-8") as f:
+                f.write(page_source)
+
         except Exception as e:
             print("Error while clicking nav button using JavaScript:", e)
 
