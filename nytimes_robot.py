@@ -76,11 +76,14 @@ class NYTimesRobot:
             print("i cant maximize browser")
         # end try
 
+        # Esperar a que la página se cargue y el botón de búsqueda sea visible
         try:
             WebDriverWait(self.browser.driver, 10).until(
                 EC.visibility_of_element_located((By.CSS_SELECTOR, "[data-testid='search-button']"))
             )
-            # Click the search button
+            # Desplazar hacia el botón de búsqueda para asegurarse de que esté visible
+            self.browser.scroll_element_into_view("css=[data-testid='search-button']")
+            # Hacer clic en el botón de búsqueda
             self.browser.click_element("css=[data-testid='search-button']")
         except Exception as e:
             print("Error while clicking search button:", e)
