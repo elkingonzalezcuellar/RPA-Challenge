@@ -77,9 +77,11 @@ class NYTimesRobot:
         # end try
 
         try:
-            self.browser.wait_until_page_contains_element("css=[data-testid='search-button']", timeout=10)
+            WebDriverWait(self.browser.driver, 10).until(
+                EC.visibility_of_element_located((By.CSS_SELECTOR, "[data-testid='search-button']"))
+            )
+            # Click the search button
             self.browser.click_element("css=[data-testid='search-button']")
-
         except Exception as e:
             print("Error while clicking search button:", e)
         
@@ -101,8 +103,9 @@ class NYTimesRobot:
             print("Failed to capture screenshot:", e)
         
 
-        try:
+        """ try:
             self.browser.wait_until_element_is_visible("css=[data-testid='search-input']")
+            
 
         except Exception as e:
             
@@ -160,7 +163,7 @@ class NYTimesRobot:
             self.browser.close_all_browsers()
             # comment: 
         except Exception as e:
-            print("i cant close browsers")
+            print("i cant close browsers") """
         # end try
     
     def handle_dialog_and_continue(self):
