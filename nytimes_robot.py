@@ -103,9 +103,17 @@ class NYTimesRobot:
         try:
            
             
-            # Desplazar hacia el botón de búsqueda para asegurarse de que esté visible
-            # Hacer clic en el botón de búsqueda
+            WebDriverWait(self.browser.driver, 10).until(
+                EC.element_to_be_clickable((By.CSS_SELECTOR, "[data-testid='search-button']"))
+            )
+            page_source = self.browser.get_source()
+            
+            with open("output/page_source3.html", "w", encoding="utf-8") as f:
+                f.write(page_source)
             self.browser.click_element("css=[data-testid='search-button']")
+
+            
+
         except Exception as e:
             print("Error while clicking search button:", e)
         
