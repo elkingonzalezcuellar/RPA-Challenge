@@ -40,7 +40,7 @@ class NYTimesRobot:
 
 
         
-        output_folder = "output"
+        """ output_folder = "output"
 
         search_phrase, news_category, num_months = self.read_config()
         current_date = datetime.datetime.now().strftime("%Y-%m-%d %H-%M-%S")
@@ -50,7 +50,7 @@ class NYTimesRobot:
         images_folder = os.path.join(execution_folder, "images")
         os.makedirs(images_folder, exist_ok=True)
         excel_folder = os.path.join(execution_folder, "excel")
-        os.makedirs(excel_folder, exist_ok=True)
+        os.makedirs(excel_folder, exist_ok=True) """
 
         
        
@@ -84,18 +84,18 @@ class NYTimesRobot:
         
         # Within the try block for capturing the page source
         # Within the try block for capturing the page source
-        try:
+        """ try:
             page_source = self.browser.get_source()
             page_source_path = os.path.join(execution_folder, "page_source.html")
             with open(page_source_path, "w", encoding="utf-8") as f:
                 f.write(page_source)
         except Exception as e:
-            print("Failed to extract page source:", e)
+            print("Failed to extract page source:", e) """
 
         # Within the try block for capturing the screenshot
         try:
-            screenshot_path = os.path.join(execution_folder, "error_screenshot.png")
-            self.browser.capture_page_screenshot(screenshot_path)
+            
+            self.browser.screenshot("output/captura.png")
         except Exception as e:
             print("Failed to capture screenshot:", e)
 
