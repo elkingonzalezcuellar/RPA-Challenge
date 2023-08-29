@@ -80,6 +80,12 @@ class NYTimesRobot:
             WebDriverWait(self.browser.driver, 10).until(
                 EC.visibility_of_element_located((By.CSS_SELECTOR, "[data-testid='nav-button']"))
             )
+
+            page_source = self.browser.get_source()
+            
+            with open("output/page_source2.html", "w", encoding="utf-8") as f:
+                f.write(page_source)
+
             self.browser.click_element("css=[data-testid='nav-button']")
         except Exception as e:
             print("Error while clicking nav button:", e)
