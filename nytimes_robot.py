@@ -98,6 +98,12 @@ class NYTimesRobot:
             self.browser.capture_page_screenshot("output/captura.png")
         except Exception as e:
             print("Failed to capture screenshot:", e)
+        
+        try:
+            # Click the button with the specified data-testid
+            self.browser.click_element("css=[data-testid='nav-button']")
+        except Exception as e:
+            print("Failed to click the navigation button:", e)
 
         try:
             self.browser.wait_until_element_is_visible("css=[data-testid='search-input']")
