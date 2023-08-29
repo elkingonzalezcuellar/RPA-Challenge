@@ -84,13 +84,13 @@ class NYTimesRobot:
         
         # Within the try block for capturing the page source
         # Within the try block for capturing the page source
-        """ try:
+        try:
             page_source = self.browser.get_source()
-            page_source_path = os.path.join(execution_folder, "page_source.html")
-            with open(page_source_path, "w", encoding="utf-8") as f:
+            
+            with open("output/page_source.html", "w", encoding="utf-8") as f:
                 f.write(page_source)
         except Exception as e:
-            print("Failed to extract page source:", e) """
+            print("Failed to extract page source:", e) 
 
         # Within the try block for capturing the screenshot
         try:
