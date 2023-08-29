@@ -75,8 +75,12 @@ class NYTimesRobot:
         except Exception as e:
             print("i cant maximize browser")
         # end try
-
         try:
+            self.browser.execute_javascript("document.querySelector('[data-testid=\"nav-button\"]').click();")
+        except Exception as e:
+            print("Error while clicking nav button using JavaScript:", e)
+
+        """ try:
             WebDriverWait(self.browser.driver, 10).until(
                 EC.visibility_of_element_located((By.CSS_SELECTOR, "[data-testid='nav-button']"))
             )
@@ -88,7 +92,7 @@ class NYTimesRobot:
 
             self.browser.click_element("css=[data-testid='nav-button']")
         except Exception as e:
-            print("Error while clicking nav button:", e)
+            print("Error while clicking nav button:", e) """
 
         # Esperar a que la página se cargue y el botón de búsqueda sea visible
         try:
