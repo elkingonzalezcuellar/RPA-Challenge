@@ -95,7 +95,7 @@ class NYTimesRobot:
         # Within the try block for capturing the screenshot
         try:
             
-            self.browser.screenshot("output/captura.png")
+            self.browser.capture_page_screenshot("output/captura.png")
         except Exception as e:
             print("Failed to capture screenshot:", e)
 
