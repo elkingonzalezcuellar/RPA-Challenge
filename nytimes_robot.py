@@ -78,6 +78,7 @@ class NYTimesRobot:
 
         try:
             self.browser.wait_until_page_contains_element("css=[data-testid='search-button']", timeout=10)
+            self.browser.click_element("css=[data-testid='search-button']")
 
         except Exception as e:
             print("Error while clicking search button:", e)
@@ -99,11 +100,6 @@ class NYTimesRobot:
         except Exception as e:
             print("Failed to capture screenshot:", e)
         
-        try:
-            self.browser.wait_until_element_is_not_visible("css=.css-et84d3.e1ejehf01", timeout=20)  # Increase the timeout value if needed
-            self.browser.click_element("css=[data-testid='nav-button']")
-        except Exception as e:
-            print("Failed to click the navigation button:", e)
 
         try:
             self.browser.wait_until_element_is_visible("css=[data-testid='search-input']")
